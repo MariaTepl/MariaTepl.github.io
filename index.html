@@ -16,14 +16,16 @@
       			src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
     			<img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
   		</a-assets>
-
-  		<a-box src="#boxTexture" position="0 2 -5" rotation="0 45 45" scale="2 2 2"></a-box>
-
+		<a-entity id="leftHand" hand-tracking-grab-controls="hand: left;">
+		<a-entity id="rightHand" hand-tracking-grab-controls="hand: right;">
+			<a-camera id="camera"></a-camera>
+		</a-entity>
+		</a-entity>
+		<a-box grabbable></a-box>
+		<a-sphere grabbable></a-box>
   		<a-sky src="#skyTexture"></a-sky>
-
   		<a-light type="ambient" color="#445451"></a-light>
   		<a-light type="point" intensity="2" position="2 4 4"></a-light>
 	</a-scene>
 </body>
 </html>
-	
