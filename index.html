@@ -1,71 +1,62 @@
 <!DOCTYPE html>
-
 <html>
-  <head>
+<head>
     <title>Tests for grabbing an object</title>
-	  <script src="component5.js"></script>
-	  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
-	  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
-	  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@67d1130/dist/aframe-extras.js"></script>
-	  <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
-	  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-super-hands-component@7d95eef/dist/super-hands.js"></script>
-	  <script src="https://cdn.jsdelivr.net/gh/MozillaReality/ammo.js@8bbc0ea/builds/ammo.wasm.js"></script>
-	  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.js"></script>
-	  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/examples/components/grab.js"></script>
-	  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/examples/components/force-pushable.js"></script>
-  </head>
-  <body>
+    <script src="component5.js"></script>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@67d1130/dist/aframe-extras.js"></script>
+    <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-super-hands-component@7d95eef/dist/super-hands.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/MozillaReality/ammo.js@8bbc0ea/builds/ammo.wasm.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/examples/components/grab.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/examples/components/force-pushable.js"></script>
+</head>
+<body>
     <a-scene physics="driver: ammo; debug: true; debugDrawMode: 1;">
-	<a-assets>
-    		<img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
-    		<img id="skyTexture" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
-    		<img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
-  	</a-assets>
-      <a-entity position="0 0 0" movement-controls="fly: false"
-		wasd-controls="acceleration: 10; fly: false">
-        <a-entity sphere-collider="objects: .object"
-            super-hands hand-controls="hand: left">
+        <a-assets>
+            <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
+            <img id="skyTexture" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+            <img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+        </a-assets>
+
+        <a-entity position="0 0 0" movement-controls="fly: false" wasd-controls="acceleration: 10; fly: false">
+            <a-entity sphere-collider="objects: .object" super-hands hand-controls="hand: left"></a-entity>
+            <a-entity hand-controls="hand: right"
+                ammo-body="type: kinematic; emitCollisionEvents: true"
+                ammo-shape="type: sphere; fit: manual; sphereRadius: 0.02;"
+                grab></a-entity>
+            <a-entity camera position="0 1.6 0" look-controls></a-entity>
         </a-entity>
-        <a-entity hand-controls="hand: right"
-            ammo-body="type: kinematic; emitCollisionEvents: true"
-            ammo-shape="type: sphere; fit: manual; sphereRadius: 0.02;"
-            grab>
-        </a-entity>
-        <a-entity camera position="0 1.6 0" look-controls></a-entity>
-      </a-entity>
 
-      <a-sphere radius="0.05" position="0 0.58 -0.3" color="red"
-        ammo-body="type: dynamic; shape: none; mass: 2;"
-        ammo-shape></a-sphere>
+        <!-- Collectible Objects -->
+        <a-sphere class="object" radius="0.05" position="0 0.58 -0.3" color="red"
+            ammo-body="type: dynamic; shape: none; mass: 2;" ammo-shape></a-sphere>
 
-      <a-entity
-        geometry="primitive: box; width: 0.1; height: 0.3; depth: 0.1"
-        position="-0.6 0.6 -0.2" rotation="0 45 0" material="color: brown"
-        ammo-body="type: dynamic; mass: 2;"
-        ammo-shape>
-      </a-entity>
+        <!-- Additional Objects -->
+        <a-entity class="object"
+            geometry="primitive: box; width: 0.1; height: 0.3; depth: 0.1"
+            position="-0.6 0.6 -0.2" rotation="0 45 0" material="color: brown"
+            ammo-body="type: dynamic; mass: 2;" ammo-shape></a-entity>
 
-      <a-entity
-        geometry="primitive: box; width: 0.1; height: 0.3; depth: 0.1"
-        position="-0.6 0.6 0" rotation="0 45 0" material="color: brown"
-        ammo-body="type: dynamic; mass: 2;"
-        ammo-shape>
-      </a-entity>
-	
-      <a-entity
-        geometry="primitive: box; width: 0.1; height: 0.3; depth: 0.1"
-        position="-0.6 0.6 0.2" rotation="0 45 0" material="color: brown"
-        ammo-body="type: dynamic; mass: 2;"
-        ammo-shape>
-      </a-entity>
-	
-      <a-box position="0 0.5 0" width="75" height="0.1" depth="75"
-        color="green"
-        ammo-body="type: static; restitution:1"
-        ammo-shape visible="true"></a-box>
-	<a-sky src="#skyTexture"></a-sky>
-	<a-text value="Score: 0" position="-1.5 2.5-5" color="black"></a-text>  
-	<a-text id="timer" value="Time: 60" position="1.5 2.5-5" color="black"></a-text> 
+        <!-- Ground -->
+        <a-box position="0 0.5 0" width="75" height="0.1" depth="75"
+            color="green" ammo-body="type: static; restitution:1"
+            ammo-shape visible="true"></a-box>
+
+        <!-- Sky and Text -->
+        <a-sky src="#skyTexture"></a-sky>
+        <a-text id="scoreText" value="Score: 0" position="-1.5 2.5 -5" color="black"></a-text>  
+        <a-text id="timerText" value="Time: 60" position="1.5 2.5 -5" color="black"></a-text> 
     </a-scene>
-  </body>
+
+    <!-- Game Over Message -->
+    <div id="gameOverMessage" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); background-color:white; padding:20px;">
+        <h1>Game Over!</h1>
+        <p id="finalScore">Final Score: 0</p>
+        <button onclick="restartGame()">Restart</button>
+    </div>
+
+</body>
 </html>
