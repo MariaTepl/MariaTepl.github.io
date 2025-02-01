@@ -4,9 +4,9 @@
   <head>
     <title>Tests for grabbing an object</title>
     <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
-    <!--    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@67d1130/dist/aframe-extras.js"></script>
-    <!--    <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script> -->
+    <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-super-hands-component@7d95eef/dist/super-hands.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/MozillaReality/ammo.js@8bbc0ea/builds/ammo.wasm.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-physics-system@v4.2.2/dist/aframe-physics-system.js"></script>
@@ -15,11 +15,11 @@
   </head>
   <body>
     <a-scene physics="driver: ammo; debug: true; debugDrawMode: 1;">
-
-<!--
-      <a-light type="ambient" color="white"></a-light>
-      <a-light type="point" intensity="2" position="-3 9 2"></a-light>
--->
+	<a-assets>
+    		<img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
+    		<img id="skyTexture" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+    		<img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
+  	</a-assets>
       <a-entity position="0 0 0" movement-controls="fly: false"
 		wasd-controls="acceleration: 10; fly: false">
         <a-entity sphere-collider="objects: .object"
@@ -62,7 +62,7 @@
         color="green"
         ammo-body="type: static; restitution:1"
         ammo-shape visible="true"></a-box>
-
+	<a-sky src="#skyTexture"></a-sky>
     </a-scene>
   </body>
 </html>
