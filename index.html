@@ -24,9 +24,10 @@
         <a-camera id="camera"></a-camera>
 
         <a-entity movement-controls="fly: true" position="0 0 0">
-            <a-entity cursor="rayOrigin:mouse"></a-entity>
-            <a-entity laser-controls="hand: right"></a-entity>
-        </a-entity>
+	       		<a-entity camera position="0 1.6 0" look-controls wasd-controls></a-entity>
+	        	<a-entity cursor="rayOrigin:mouse"></a-entity>
+	        	<a-entity laser-controls="hand: right"></a-entity>
+      	</a-entity
 
         <!-- Collectible Objects -->
         <a-box class="grabbable object" position="2 5 0"></a-box>
