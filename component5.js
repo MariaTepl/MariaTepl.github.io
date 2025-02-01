@@ -11,11 +11,11 @@ AFRAME.registerComponent('game', {
         // Start the timer
         this.startTimer();
 
-        // Set up collision detection
+        // Set up collision detection for collectible objects
         const objects = document.querySelectorAll('.object');
         objects.forEach(obj => {
             obj.addEventListener('collide', (event) => {
-                if (event.detail.body.el.id === 'rightHand') {
+                if (event.detail.body.el.id === 'rightHand' || event.detail.body.el.id === 'leftHand') {
                     this.collectObject(obj);
                 }
             });
@@ -65,3 +65,9 @@ AFRAME.registerComponent('game', {
 function restartGame() {
     location.reload(); // Reload the page to restart the game
 }
+
+// Initialize the game component
+document.addEventListener('DOMContentLoaded', () => {
+    const sceneEl = document.querySelector('a-scene');
+    sceneEl.setAttribute('game', '');
+});
