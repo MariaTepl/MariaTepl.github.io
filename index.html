@@ -15,10 +15,11 @@
     			<img id="skyTexture" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
     			<img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
   		</a-assets>
-		<a-entity ground src="#groundTexture"></a-entity>
+		<a-plane src="#groundTexture" rotation="-90 0 0" width="30" height="30"></a-plane>
+		<a-entity ground></a-entity>
 		<a-entity id="leftHand" hand-tracking-grab-controls="hand: left;">
 		<a-entity id="rightHand" hand-tracking-grab-controls="hand: right;">
-			<a-camera id="camera"></a-camera>
+			<a-camera id="camera"> <a-cursor></a-cursor></a-camera>
 		</a-entity>
 		</a-entity>
 		<a-entity hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc" aabb-collider="objects: .cube;" grab></a-entity>
