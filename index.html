@@ -16,6 +16,7 @@
     			<img id="skyTexture" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
     			<img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
   		</a-assets>
+		
 		<a-plane src="#groundTexture" rotation="-90 0 0" width="30" height="30"></a-plane>
 		<a-entity ground></a-entity>
 		<a-entity id="leftHand" hand-tracking-grab-controls="hand: left;">
@@ -29,8 +30,6 @@
 	        	<a-entity laser-controls="hand: right"></a-entity>
       		</a-entity
 
-
-		
 		<a-box grabbable position="2 5 0"></a-box>
 		<a-sphere grabbable position="3 5 0"></a-sphere>
   		<a-sky src="#skyTexture"></a-sky>
