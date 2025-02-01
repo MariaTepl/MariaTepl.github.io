@@ -1,27 +1,67 @@
-AFRAME.registerComponent('hello', {
+AFRAME.registerComponent('game', {
     schema: {
-        message: {type: 'string', default: 'Hello!'},
-        event: {type: 'string', default: ''},
-      },
+        timerDuration: { type: 'int', default: 60 }
+    },
 
-    init: function () {
-      var data = this.data;  // Component property values.
-      var el = this.el;  // Reference to the component's entity.
-      var pos_y = 1;
-      if (data.event) {
-        // This will log the `message` when the entity emits the `event`.
-        el.addEventListener(data.event, function () {
-          console.log(data.message);
-          var box = document.createElement("a-box");
-          box.setAttribute('color', 'red');
-          box.setAttribute('position', {x: 0, y: pos_y, z: 0});
-          el.appendChild(box);
-          pos_y += 1;
+    init() {
+        this.score = 0;
+        this.timer = this.data.timerDuration;
+        this.gameOver = false;
+
+        // Start the timer
+        this.startTimer();
+
+        // Set up collision detection
+        const objects = document.querySelectorAll('.object');
+        objects.forEach(obj => {
+            obj.addEventListener('collide', (event) => {
+                if (event.detail.body.el.id === 'rightHand') {
+                    this.collectObject(obj);
+                }
+            });
         });
-      } else {
-        // `event` not specified, just log the message.
-        console.log(data.message);
-      };
+    },
 
+    collectObject(object) {
+        if (this.gameOver) return;
+
+        // Increase score and remove object
+        this.score++;
+        object.parentNode.removeChild(object);
+        
+        // Update score display
+        document.getElementById('scoreText').setAttribute('value', `Score: ${this.score}`);
+        
+        // Check for end of game condition (optional)
+    },
+
+    startTimer() {
+        const timerInterval = setInterval(() => {
+            if (this.gameOver) {
+                clearInterval(timerInterval);
+                return;
+            }
+
+            this.timer--;
+            document.getElementById('timerText').setAttribute('value', `Time: ${this.timer}`);
+
+            if (this.timer <= 0) {
+                this.endGame();
+                clearInterval(timerInterval);
+            }
+        }, 1000);
+    },
+
+    endGame() {
+        this.gameOver = true;
+        
+        // Display game over message
+        document.getElementById('finalScore').innerText = `Final Score: ${this.score}`;
+        document.getElementById('gameOverMessage').style.display = 'block';
     }
-  });
+});
+
+// Restart game function
+function restartGame() {
+    location.reload(); // Reload the page to restart the game
+}
