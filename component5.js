@@ -26,9 +26,9 @@ AFRAME.registerComponent('collectible', {
             setInterval(updateTimer, 1000);
     
             function endGame() { 
-                let finalScore = parseInt(document.querySelector('[text__value="Score: "]').getAttribute('text').value.split(': ')[1]); 
-                alert('Game Over! Your final score is: ' + finalScore); 
-                location.reload();
-            }
+            let finalScore = parseInt(document.querySelector('[text_value="Score: "]').getAttribute('text').value.split(': ')[1]); 
+            alert('Game Over! Your final score is: ' + finalScore); 
+            location.reload();
+        }
         }
     });
