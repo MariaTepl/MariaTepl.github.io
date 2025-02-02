@@ -32,10 +32,11 @@
 		<a-entity id="leftHand" hand-tracking-grab-controls="hand: left;">
 		<a-entity id="rightHand" hand-tracking-grab-controls="hand: right;"></a-entity>
 		</a-entity>
-		<a-entity hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc" aabb-collider="objects: .cube;" grab></a-entity>
-      		<a-entity hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc" aabb-collider="objects: .cube;" grab></a-entity>
-		<a-box grabbable></a-box>
-		<a-sphere grabbable position="25 10 0"></a-sphere>
+		<a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: left"></a-entity>
+      		<a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: right"></a-entity>
+    		</a-entity>
+    		<a-box hoverable grabbable stretchable draggable droppable color="blue" position="0 0 -1"></a-box>
+    		<a-box hoverable grabbable stretchable draggable droppable color="blue" position="0 0 -1"></a-box>
   		<a-sky src="#skyTexture"></a-sky>
   		<a-light type="ambient" color="#445451"></a-light>
   		<a-light type="point" intensity="2" position="2 4 4"></a-light>
