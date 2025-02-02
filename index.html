@@ -20,15 +20,20 @@
 		}); 
 		let timeLeft = 60;
 		let timerElement = document.querySelector('#timer'); 
-		function updateTimer() { 
-			if (timeLeft > 0) { 
-				timeLeft--; 
-			timerElement.setAttribute('text', { value: 'Time: + timeLeft }); 
-			} else { 
-			endGame(); 
+			function updateTimer() { 
+				if (timeLeft > 0) { 
+					timeLeft--; 
+				timerElement.setAttribute('text', { value: 'Time: + timeLeft }); 
+				} else { 
+				endGame(); 
+					} 
 				} 
-			} 
-		setInterval(updateTimer, 1000); 
+		setInterval(updateTimer, 1000);
+		function endGame(){ 
+			let finalScore parseInt(document.querySelector('[text_value="Score: "]').getAttribute('text').value.split(': ')[1]); 
+			alert('Game Over! Your final score is: + finalScore); 
+			location.reload();
+			}
 	}
 });
 </script>
