@@ -7,6 +7,33 @@
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-super-hands-component@7d95eef/dist/super-hands.js"></script>
 	<script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+	<script>
+      AFRAME.registerComponent('collectible', {
+        init: function () { 
+		this.el.addEventListener('click', () => { 
+		// Удаление объекта 
+		this.el.parentNode.removeChild(this.el); 
+		// Обновление счета 
+		let scoreElement = document.querySelector('[text_value="Score: "]'); 
+		let score = parseInt(scoreElement.getAttribute('text').value.split(': ')[1]) + 1; 
+		scoreElement.setAttribute('text', { value: 'Score: ' + score }); 
+		}); 
+		let timeLeft = 60;
+		let timerElement = document.querySelector('#timer'); 
+		function updateTimer() { 
+			if (timeLeft > 0) { 
+				timeLeft--; 
+			timerElement.setAttribute('text', { value: 'Time: + timeLeft }); 
+			} else { 
+			endGame(); 
+				} 
+			} 
+		setInterval(updateTimer, 1000); 
+	}
+});
+</script>
+        }
+      });
 </head>
 <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
@@ -35,12 +62,10 @@
 		</a-entity>
 		<a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: left"></a-entity>
       		<a-entity sphere-collider="objects: a-sphere" super-hands hand-controls="hand: right"></a-entity>
-    		<a-box hoverable grabbable stretchable draggable droppable color="blue" position="0 0 -1"></a-box>
-    		<a-sphere hoverable grabbable stretchable draggable droppable color="blue" position="0 2 -1"></a-sphere>
+    		<a-box hoverable grabbable collectible draggable droppable color="blue" position="0 0 -1"></a-box>
+    		<a-sphere hoverable grabbable collectible draggable droppable color="blue" position="0 2 -1"></a-sphere>
 		<a-text value="Score: 0" position="-1.5 2.5-5" color="white"></a-text> 
 		<a-text id="timer" value="Time: 60" position="1.5 2.5-5" color="white"></a-text>
-
-		
   		<a-sky src="#skyTexture"></a-sky>
 		<a-plane color='white' rotation="-90 0 0" 
          	width="100" height="100"></a-plane>
