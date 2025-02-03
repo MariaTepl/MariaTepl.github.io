@@ -31,7 +31,7 @@
            		 super-hands hand-controls="hand: right">
         		</a-entity>
         		<a-entity camera position="0 1.6 0" look-controls wasd-controls></a-entity>
-			<a-cursor color="black" fuse="true" fuse-timeout="500"></a-cursor>
+			<a-cursor color="black" fuse="true"></a-cursor>
       		</a-entity>
 		<a-entity id="leftHand" hand-tracking-grab-controls="hand: left;">
 		<a-entity id="rightHand" hand-tracking-grab-controls="hand: right;"></a-entity>
@@ -40,12 +40,12 @@
 		<a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: left"></a-entity>
       		<a-entity sphere-collider="objects: a-sphere" super-hands hand-controls="hand: right"></a-entity>
 		
-    		<a-box hoverable grabbable collectible draggable droppable color="blue" position="0 0 -1" dynamic-body="mass: 10"></a-box>
-    		<a-sphere hoverable grabbable collectible draggable droppable color="blue" position="0 2 -1" dynamic-body="mass: 10"></a-sphere>
-		<a-box hoverable grabbable collectible draggable droppable color="blue" position="0 0 -1" dynamic-body="mass: 10"></a-box>
-    		<a-sphere hoverable grabbable collectible draggable droppable color="blue" position="0 2 -1" dynamic-body="mass: 10"></a-sphere>
-		<a-box hoverable grabbable collectible draggable droppable color="blue" position="0 0 -1" dynamic-body="mass: 10"></a-box>
-    		<a-sphere hoverable grabbable collectible draggable droppable color="blue" position="0 2 -1" dynamic-body="mass: 10"></a-sphere>
+		<a-box position="-5 5 -3" color="#blue" collectible dynamic-body="mass: 10"></a-box>
+		<a-box position="5 5 -2" color="#blue" collectible dynamic-body="mass: 10"></a-box>
+		<a-box position="-5 5 -1" color="#blue" collectible dynamic-body="mass: 10"></a-box>
+		<a-box position="8 5 -3" color="#blue" collectible dynamic-body="mass: 10"></a-box>
+		<a-box position="-5 5 -3" color="#blue" collectible dynamic-body="mass: 10"></a-box>
+		<a-box position="-2 5 -4" color="#blue" collectible dynamic-body="mass: 10"></a-box>
 		
 		<a-text id="score" value="Score: 0" position="-1.5 2.5-5" color="white"></a-text> 
 		<a-text id="timer" value="Time: 60" position="1.5 2.5-5" color="white"></a-text>
