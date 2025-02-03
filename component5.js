@@ -1,18 +1,13 @@
 AFRAME.registerComponent('collectible', {
-            init: function () {
+    init: function () {
                 this.el.addEventListener('click', () => {
                     this.el.parentNode.removeChild(this.el);
-
-                    // Обновление счета
                     let scoreElement = document.querySelector('#score');
                     let score = parseInt(scoreElement.getAttribute('value').split(': ')[1]) + 1;
                     scoreElement.setAttribute('value', 'Score: ' + score);
                 });
-            }
-        });
-
-        let timeLeft = 60;
-        let timerElement = document.querySelector('#timer');
+                let timeLeft = 60;
+                    let timerElement = document.querySelector('#timer');
 
         function updateTimer() {
             if (timeLeft > 0) {
@@ -31,3 +26,5 @@ AFRAME.registerComponent('collectible', {
             gameOverText.setAttribute('value', 'Game Over! Your final score is: ' + finalScore);
             // location.reload();
         }
+            }
+        });
