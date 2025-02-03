@@ -30,14 +30,13 @@
       		<a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #EEEEE"></a-entity>
       		<a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: #EEEEE"></a-entity>
 		
-		<a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: left">
-			<a-box position="-5 2 -3" color="blue" collectible dynamic-body="mass: 10"></a-box>
-			<a-box position="5 2 -2" color="blue" collectible dynamic-body="mass: 10"></a-box>
-			<a-box position="-5 2 -1" color="blue" collectible dynamic-body="mass: 10"></a-box>
-			<a-box position="8 2 -3" color="blue" collectible dynamic-body="mass: 10"></a-box>
-			<a-box position="-5 2 -3" color="blue" collectible dynamic-body="mass: 10"></a-box>
-			<a-box position="-2 2 -4" color="blue" collectible dynamic-body="mass: 10"></a-box>
-		</a-entity>
+		<a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: left"></a-entity>
+		<a-box position="-5 2 -3" color="blue" collectible dynamic-body="mass: 10"></a-box>
+		<a-box position="5 2 -2" color="blue" collectible dynamic-body="mass: 10"></a-box>
+		<a-box position="-5 2 -1" color="blue" collectible dynamic-body="mass: 10"></a-box>
+		<a-box position="8 2 -3" color="blue" collectible dynamic-body="mass: 10"></a-box>
+		<a-box position="-5 2 -3" color="blue" collectible dynamic-body="mass: 10"></a-box>
+		<a-box position="-2 2 -4" color="blue" collectible dynamic-body="mass: 10"></a-box>
 		<a-text id="score" value="Score: 0" position="-1.5 2.5-5" color="white"></a-text> 
 		<a-text id="timer" value="Time: 60" position="1.5 2.5-5" color="white"></a-text>
 		<a-text id="gameOverText" value="" position="-1 4 -4" color="red"></a-text>
