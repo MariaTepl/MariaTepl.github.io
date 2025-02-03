@@ -26,9 +26,7 @@ AFRAME.registerComponent('collectible', {
                     let finalScore = parseInt(document.querySelector('#score').getAttribute('value').split(': ')[1]);
                     let gameOverText = document.querySelector('#gameOverText');
                     gameOverText.setAttribute('value', 'Game Over! Your final score is: ' + finalScore);
-        
-                    // Перезапуск игры (можно убрать, если не нужно)
-                    // location.reload();
+                    location.reload();
                 }
             }
         });
