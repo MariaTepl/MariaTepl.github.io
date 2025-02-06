@@ -20,6 +20,8 @@
     			<img id="groundTexture" src="https://cdn.aframe.io/a-painter/images/floor.jpg">
   		</a-assets>
 		<a-entity ground></a-entity>
+		<a-entity id="explosion" particle-system="preset: explosion; color: yellow"></a-entity>
+		<a-sound src="retro-coin.wav" autoplay="false" id="collectSound"></a-sound>
 		<a-entity gltf-model="#left-obj" position="1.5 2 5"></a-entity>
 		<a-entity gltf-model="#right-obj" position="1.5 4 5"></a-entity>
 		<a-entity position="0 0 0" movement-controls="fly: false"
@@ -35,7 +37,7 @@
 		<a-box position="5 2 -2" color="blue" collectible dynamic-body="mass: 10"></a-box>
 		<a-box position="-7 2 -1" color="blue" collectible dynamic-body="mass: 10"></a-box>
 		<a-box position="8 2 -3" color="blue" collectible dynamic-body="mass: 10"></a-box>
-		<a-box position="-5 2 -3" color="blue" collectible dynamic-body="mass: 10"></a-box>
+		<a-box position="-5.5 2 -3" color="blue" collectible dynamic-body="mass: 10"></a-box>
 		<a-box position="-2 2 -4" color="blue" collectible dynamic-body="mass: 10"></a-box>
 		<a-box position="-3 2 -3" color="blue" collectible dynamic-body="mass: 10"></a-box>
 		<a-box position="6 2 -2" color="blue" collectible dynamic-body="mass: 10"></a-box>
