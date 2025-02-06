@@ -27,6 +27,16 @@ AFRAME.registerComponent('collectible', {
             gameOverText.setAttribute('value', 'Game Over! Your final score is: ' + finalScore);
             // location.reload();
         }
+        function respawnCollectible(collectible) {
+            const x = (Math.random() - 0.5) * 20;
+            const z = (Math.random() - 0.5) * 20;
+            collectible.setAttribute('position', { x: x, y: 1, z: z });
+            collectible.setAttribute('visible', true);
+        }
+
+        document.querySelectorAll('.collidable').forEach(el => {
+            el.setAttribute('proximity-check', '');
+        });
         
         function randomizeObjectPositions() {
             const objects = document.querySelectorAll('.collidable');
