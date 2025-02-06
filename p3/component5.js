@@ -3,6 +3,7 @@ AFRAME.registerComponent('collectible', {
                 this.el.addEventListener('click', () => {
                     this.el.parentNode.removeChild(this.el);
                     let scoreElement = document.querySelector('#score');
+                    document.querySelector('#collectSound').components.sound.playSound();
                     let score = parseInt(scoreElement.getAttribute('value').split(': ')[1]) + 1;
                     scoreElement.setAttribute('value', 'Score: ' + score);
                 });
