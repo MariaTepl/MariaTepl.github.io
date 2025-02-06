@@ -1,2 +1,4 @@
-https://MariaTepl.github.io
+Практическая 2: https://MariaTepl.github.io
+Выполнили: Талалайченко и Тепляшина 09.07.12п
+Практическая 3: https://MariaTepl.github.io/p3
 Выполнили: Талалайченко и Тепляшина 09.07.12п
