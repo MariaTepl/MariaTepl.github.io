@@ -27,5 +27,14 @@ AFRAME.registerComponent('collectible', {
             gameOverText.setAttribute('value', 'Game Over! Your final score is: ' + finalScore);
             // location.reload();
         }
+        
+        function randomizeObjectPositions() {
+            const objects = document.querySelectorAll('.collidable');
+            objects.forEach(obj => {
+                const x = (Math.random() - 0.5) * 20;
+                const z = (Math.random() - 0.5) * 20;
+                obj.setAttribute('position', { x: x, y: 1, z: z });
+            });
+        }
             }
         });
