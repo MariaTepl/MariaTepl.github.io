@@ -36,5 +36,6 @@ AFRAME.registerComponent('collectible', {
                 obj.setAttribute('position', { x: x, y: 1, z: z });
             });
         }
+        window.addEventListener('load', randomizeObjectPositions);
             }
         });
